@@ -1,0 +1,16 @@
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\bin\Debug\net5.0\ProgramaEmagrecimento.exe
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\bin\Debug\net5.0\ProgramaEmagrecimento.deps.json
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\bin\Debug\net5.0\ProgramaEmagrecimento.runtimeconfig.json
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\bin\Debug\net5.0\ProgramaEmagrecimento.runtimeconfig.dev.json
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\bin\Debug\net5.0\ProgramaEmagrecimento.dll
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\bin\Debug\net5.0\ProgramaEmagrecimento.pdb
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.csproj.AssemblyReference.cache
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.AssemblyInfoInputs.cache
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.AssemblyInfo.cs
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.csproj.CoreCompileInputs.cache
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.dll
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\refint\ProgramaEmagrecimento.dll
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.pdb
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ProgramaEmagrecimento.genruntimeconfig.cache
+C:\Users\jonatan nery\Desktop\c#\projetoBRQ\ProgramaEmagrecimento\obj\Debug\net5.0\ref\ProgramaEmagrecimento.dll
