@@ -14,33 +14,46 @@ namespace ProgramaEmagrecimento
             string nome, sexo, categoria;
 
             // O usuário esta tendo a infomação do inicio do programa.
-            Console.WriteLine("Estamos dando o início ao   para o programa de " +
-                "emagrecimento");
+            Console.WriteLine("Sistema de controle de IMC. ");
+
 
             Console.WriteLine("");
 
-            Console.WriteLine("por favor, insira seus dados.");
+            Console.WriteLine("por favor, insira seus dados. \n");
 
-            Console.WriteLine("");
+           
             // Obtendo o nome do usuário
 
             Console.Write("\nNome : ");
             nome = Console.ReadLine();
 
             //Obtendo o sexo do usuário            
-            Console.Write("\nSexo : ");
-            sexo = Console.ReadLine();
-            sexo = sexo.ToUpper();
-            while (sexo != "masculino" && sexo != "feminino")
+            Console.Write("\nSexo (M ou F): ");
+            sexo = Console.ReadLine().ToUpper(); 
+
+            //atribuindo o caractere para o sexo do usuário
+
+            while (sexo != "M" && sexo != "F")
             {
+
                 Console.WriteLine("informação invalida, insira o sexo novamente.");
+                sexo = Console.ReadLine().ToUpper();
+            }
+            //atribuindo o sexo.
+            if (sexo == "M")
+            {
+                sexo = "masculino";
+            }
+            else if (sexo == "F") ;
+            {
+                sexo = "feminino";
             }
 
 
             //Obetendo a idade do usuário           
             Console.Write("\nIdade : ");
             idade = int.Parse(Console.ReadLine());
-
+            
 
 
             //Obtendo a altura do usuário
@@ -125,7 +138,7 @@ namespace ProgramaEmagrecimento
             }
             else
             {
-                Console.WriteLine("Super obesidade \t);" );
+                Console.WriteLine("Super obesidade \t);");
 
                 Console.WriteLine(@"Riscos: O obeso mórbido vive menos
                                     tem alto risco de mortalidade geral por diversas causas.");
