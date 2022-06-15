@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ProgramaEmagrecimento
 {
@@ -9,9 +10,10 @@ namespace ProgramaEmagrecimento
             // Início do projeto
 
             //variaveis do projeto
-            int idade;
+            int idade=0;
             double peso, altura, IMC;
             string nome, sexo, categoria;
+            bool validarIdade , validadeAltura, validadePeso;
 
             // O usuário esta tendo a infomação do inicio do programa.
             Console.WriteLine("Sistema de controle de IMC. ");
@@ -24,11 +26,11 @@ namespace ProgramaEmagrecimento
            
             // Obtendo o nome do usuário
 
-            Console.Write("\nNome : ");
+            Console.Write("Nome : ");
             nome = Console.ReadLine();
 
             //Obtendo o sexo do usuário            
-            Console.Write("\nSexo (M ou F): ");
+            Console.Write("Sexo (M ou F): ");
             sexo = Console.ReadLine().ToUpper(); 
 
             //atribuindo o caractere para o sexo do usuário
@@ -37,7 +39,9 @@ namespace ProgramaEmagrecimento
             {
 
                 Console.WriteLine("informação invalida, insira o sexo novamente.");
+                Console.Write("Sexo (M ou F): ");
                 sexo = Console.ReadLine().ToUpper();
+                
             }
             //atribuindo o sexo.
             if (sexo == "M")
@@ -51,33 +55,52 @@ namespace ProgramaEmagrecimento
 
 
             //Obetendo a idade do usuário           
-            Console.Write("\nIdade : ");
-            idade = int.Parse(Console.ReadLine());
-            
+            Console.Write("Idade : ");
+            validarIdade = int.TryParse(Console.ReadLine(),out idade);
+
+            while (validarIdade == false ||idade <=0)  // idade tem que ser valores positivos
+            {
+                Console.WriteLine("Não identificamos sua idade .Por favor insira a idade novamente:");
+                Console.Write("Idade : ");
+                validarIdade = int.TryParse(Console.ReadLine(),out idade);
+            }
 
 
             //Obtendo a altura do usuário
-            Console.Write("\nAltura : ");
-            altura = double.Parse(Console.ReadLine());
+            Console.Write("Altura : ");
+            validadeAltura = double.TryParse(Console.ReadLine(),out altura);
+            while (validadeAltura == false || altura <= 0)
+            {
+                //altura deve ter valores positivos
+                Console.WriteLine("Não identificamos sua altura.Por favor insira a altura novamente: ");
+                Console.Write("Altura : ");
+                validadeAltura = double.TryParse(Console.ReadLine(), out altura);
+            }
 
-            //Obtendo o peso do usuário
-            Console.Write("\nPeso: ");
-            peso = double.Parse(Console.ReadLine());
+            //obtendo o peso do usuário
+            Console.Write("Peso : ");
+            validadePeso =double.TryParse(Console.ReadLine(),out peso);
+            while(validadePeso == false || peso <= 0)
+            {
+                //peso deve ter valores positivos
+                Console.WriteLine("Não identificamos seu peso. Por favor insira o peso novamente!");
+                Console.Write("Peso : ");
+                validadePeso = double.TryParse(Console.ReadLine(), out peso);
 
+            }
 
+            // saber  a categoria do usuário
+            Console.Write("Categoria : ");
+            int entrarCategoria = idade;
+            categoria=Categoria(entrarCategoria);
 
-
-
-            /*Console.WriteLine($"Nome:{nome}\n"+
-                              $"idade:{idade}\n"+
-                              $"sexo:{altura}\n");
-*/
+            Console.WriteLine(categoria);
 
         }
 
         private static string Categoria(int idade)
         {
-            if (idade < 12)
+            if (idade <= 12)
             {
                 return "Infantil";
             }
