@@ -16,9 +16,10 @@ namespace ProgramaEmagrecimento
             bool validarIdade, validadeAltura, validadePeso;
 
             // O usuário esta tendo a infomação do inicio do programa.
-            Console.WriteLine("Sistema de controle de IMC. \n");
+            Console.WriteLine("                 |     Sistema de controle de IMC.      |                        \n" );
+            Console.WriteLine("");
 
-
+            Console.WriteLine("||-----------------------------------//-------------------------------------------|| \n");
 
 
             Console.WriteLine("por favor, insira seus dados. \n");
@@ -50,7 +51,7 @@ namespace ProgramaEmagrecimento
             {
                 sexo = "masculino";
             }
-            else if (sexo == "F") ;
+            else if (sexo == "F") 
             {
                 sexo = "feminino";
             }
@@ -70,6 +71,7 @@ namespace ProgramaEmagrecimento
 
 
             //Obtendo a altura do usuário
+           
             Console.Write("Altura : ");
             validadeAltura = double.TryParse(Console.ReadLine(), out altura);
             while (validadeAltura == false || altura <= 0)
@@ -89,7 +91,7 @@ namespace ProgramaEmagrecimento
             {
                 //peso deve ter valores positivos
                 //validando somente números positivos.
-                Console.WriteLine("Não identificamos seu peso. Por favor insira o peso novamente!");
+                Console.WriteLine("Não identificamos seu peso. Por favor insira o peso novamente! \t");
                 Console.Write("Peso : ");
                 validadePeso = double.TryParse(Console.ReadLine(), out peso);
 
@@ -106,16 +108,40 @@ namespace ProgramaEmagrecimento
             categoria = Categoria(auxCategoria);
             Console.WriteLine(categoria);
 
-            // foi criado o método "Imc" obtendo a fórmula para calcular o IMC do usuário.
-            Console.WriteLine("IMC desejável: entre 20 e 24 .");
-            Console.Write("Resultado IMC: ");
+
+
+
+            
+            Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
+            Console.WriteLine("\n                    --  DIAGNÓSTICO PRÉVIO --             \n");
+            Console.WriteLine($"Nome: {nome}\n" +
+                              $"Sexo: {sexo} \n" +
+                              $"Idade:{idade} anos\n" +
+                              $"Altura: {altura} metros\n" +
+                              $"Peso: {peso} kg\n" +
+                              $"Categoria: {categoria}\n\n");
+            
+
             double auxImc = Imc(altura, peso);
-            Console.WriteLine(auxImc);
+            // foi criado o método "Imc" obtendo a fórmula para calcular o IMC do usuário.
+            Console.WriteLine($"IMC desejável: entre 20 e 24 .\n\n"+
+                              $"Resultado IMC: {auxImc} ");
+            Classificacao(auxImc); /*foi criado o metodo " Classificação" para visualizar a classificação do usuario 
+                                              com os dados de "riscos" e " recomendações iniciais "*/
+            
 
 
 
-            /*foi criado o metodo " Classificação" para visualizar a classificação do usuario 
-            com os dados de "riscos" e " recomendações iniciais "*/
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -150,61 +176,64 @@ namespace ProgramaEmagrecimento
 
         //Foi criado um método para saber a classificação do usuario
         //A classificação é baseada no índice de massa corporal(IMC).
-        static double Classificacao(double imc)
+        static void Classificacao(double imc)
         {
             if (imc < 20)
             {
-                Console.WriteLine("Abaixo do peso Ideal \t");
+                Console.WriteLine("Abaixo do peso Ideal ");
 
-                Console.WriteLine(@"Riscos: Muitas complicações de saúde como doenças pulmonares 
-                                   e cardiovasculares podem estar associadas ao baixo peso. \t");
+                Console.WriteLine("Riscos: Muitas complicações de saúde como doenças pulmonares " +
+                                  " e cardiovasculares podem estar associadas ao baixo peso. \n");
 
-                Console.WriteLine(@"Recomendação inicial:Inclua carboidratos simples em sua dieta, além de proteínas -
-                                    indispensáveis para ganho de massa magra. Procure um profissional .");
+                Console.WriteLine("Recomendação inicial:Inclua carboidratos simples em sua dieta," +
+                                  " além de proteínas - indispensáveis para ganho de massa magra." +
+                                  " Procure um profissional.\n");
             }
             else if (imc >= 20 && imc <= 24)
             {
-                Console.WriteLine("Peso normal \t");
-                Console.WriteLine("Riscos: Seu peso está ideal para suas referências. \t");
-                Console.WriteLine(@"Recomendação inicial: Mantenha uma dieta saudável e faça 
-                                   seus exames periódicos.");
+                Console.WriteLine("Peso normal ");
+                Console.WriteLine("Riscos: Seu peso está ideal para suas referências. \n");
+                Console.WriteLine("Recomendação inicial: Mantenha uma dieta saudável e faça seus" +
+                                  " exames periódicos.\n");
             }
             else if (imc >= 25 && imc <= 29)
             {
-                Console.WriteLine("Excesso de peso \t");
-                Console.WriteLine(@"Riscos: Aumento de peso apresenta risco moderado
-                                    para outras doenças crônicas e cardiovasculares. \t ");
+                Console.WriteLine("Excesso de peso ");
+                Console.WriteLine("Riscos: Aumento de peso apresenta risco moderado" +
+                    " para outras doenças crônicas" +
+                    " e cardiovasculares. \n ");
 
 
-                Console.WriteLine(@"Recomendação inicial:Adote um tratamento baseado
-                                    em dieta balanceada, exercício físico e medicação.
-                                    A ajuda de um profissional pode ser interessante \t ");
+                Console.WriteLine("Recomendação inicial:Adote um tratamento baseado em " +
+                    "dieta balanceada,exercício físico e medicação." +
+                    " A ajuda de um profissional pode ser interessante .\n");
             }
             else if (imc >= 30 && imc <= 35)
             {
-                Console.WriteLine("Obesidade \t");
+                Console.WriteLine("Obesidade \n");
 
-                Console.WriteLine(@"Riscos: Quem tem obesidade vai estar mais exposto a doenças 
-                                    graves e ao risco de mortalidade. \t");
+                Console.WriteLine("Riscos: Quem tem obesidade vai estar mais" +
+                                  " exposto a doenças graves e ao" +
+                                  " risco de mortalidade. \n");
 
-                Console.WriteLine(@"Recomendação inicial: Adote uma dieta alimentar rigorosa, 
-                                    com o acompanhamento de um nutricionista e
-                                    um médico especialista (endócrino).");
+                Console.WriteLine("Recomendação inicial: Adote uma dieta " +
+                                  "alimentar rigorosa, com o acompanhamento" +
+                                  " de um nutricionista e um médico especialista (endócrino).");
             }
             else
             {
-                Console.WriteLine("Super obesidade \t);");
+                Console.WriteLine("Super obesidade \n");
 
-                Console.WriteLine(@"Riscos: O obeso mórbido vive menos
-                                    tem alto risco de mortalidade geral por diversas causas.");
+                Console.WriteLine("Riscos: O obeso mórbido vive menos tem" +
+                                  " alto risco de mortalidade geral por " +
+                                  "diversas causas.\n");
 
-                Console.WriteLine(@"Recomendação inicial: Procure com urgência o acompanhamento 
-                                    de um nutricionista para realizar reeducação alimentar, 
-                                    um psicólogo e um médico especialista (endócrino).");
+                Console.WriteLine($"Recomendação inicial: Procure com urgência o  acompanhamento de um nutricionista" +
+                                 $" para realizar reeducação alimentar, um psicólogo e um médico especialista (endócrino).\n");
 
             }
 
-            return imc;
+            
 
         }
 
