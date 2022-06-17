@@ -16,8 +16,8 @@ namespace ProgramaEmagrecimento
             bool validarIdade, validadeAltura, validadePeso;
 
             // O usuário esta tendo a infomação do inicio do programa.
-            Console.WriteLine("                 |     Sistema de controle de IMC.      |                        \n" );
-            Console.WriteLine("");
+            Console.WriteLine("                 |      Sistema de controle de IMC.      |                        \n" );
+            
 
             Console.WriteLine("||-----------------------------------//-------------------------------------------|| \n");
 
@@ -27,15 +27,20 @@ namespace ProgramaEmagrecimento
 
             // Obtendo o nome do usuário.
 
-            Console.Write("Nome : ");
+            Console.Write("Nome: ");
             nome = Console.ReadLine();
 
             //Obtendo o sexo do usuário.       
             Console.Write("Sexo (M ou F): ");
-            sexo = Console.ReadLine().ToUpper(); //ToUpper vai deixar a primeira letra da palavra maiuscula .
 
-            //atribuindo o caractere para o sexo do usuário "m" para masculino e "f " para feminino com uma condição
-            //caso o usuário digite palavras que nao seja "m" ou "f".
+            /*se o usuário digitar a letra "M" ou "F" maiuscula ou minúscula 
+              a entrada vai ser identificada .*/
+            sexo = Console.ReadLine().ToUpper(); 
+
+
+
+            // "sexo" tem que se diferente de "M" e "F" para invalidar a informação e inserir a informação correta. se "sexo" foi igual aos 
+           // caracteres ,vai sair do Loop e a informação vai ser inserida .
             while (sexo != "M" && sexo != "F")
             {
                 //se o usuário digitar palavras diferente do que é pedido ,aparecerá essa informação
@@ -46,53 +51,53 @@ namespace ProgramaEmagrecimento
                 sexo = Console.ReadLine().ToUpper();
 
             }
-            //atribuindo o sexo.
+            //atribuindo a variavel sexo em "m" para masculino e "f" para feminino.
             if (sexo == "M")
             {
-                sexo = "masculino";
+                sexo = "Masculino";
             }
             else if (sexo == "F") 
             {
-                sexo = "feminino";
+                sexo = "Feminino";
             }
 
 
             //Obtendo a idade do usuário           
-            Console.Write("Idade : ");
+            Console.Write("por favor insira sua Idade: ");
             validarIdade = int.TryParse(Console.ReadLine(), out idade);
 
             //validando somente números positivos.
-            while (validarIdade == false || idade <= 0)  // idade tem que ser valores positivos
+            while (validarIdade == false || idade <= 0 || idade >= 125)  // idade tem que ser valores positivos
             {
-                Console.WriteLine("Não identificamos sua idade .Por favor insira a idade novamente:");
-                Console.Write("Idade : ");
+                Console.WriteLine("Não identificamos sua idade .Por favor insira a idade novamente!");
+                Console.Write("Idade: ");
                 validarIdade = int.TryParse(Console.ReadLine(), out idade);
             }
 
 
             //Obtendo a altura do usuário
            
-            Console.Write("Altura : ");
-            validadeAltura = double.TryParse(Console.ReadLine(), out altura);
-            while (validadeAltura == false || altura <= 0)
+            Console.Write("Por favor insita sua Altura metros: ");
+            validadeAltura = double.TryParse(Console.ReadLine(),out altura);
+            while (validadeAltura == false || altura <= 0 || altura>=2.6)
             {
                 //altura deve ter valores positivos
                 //validando somente números positivos.
-                Console.WriteLine("Não identificamos sua altura.Por favor insira a altura novamente: ");
-                Console.Write("Altura : ");
+                Console.WriteLine("Não identificamos sua altura.Por favor insira a altura novamente! ");
+                Console.Write("Altura: ");
                 validadeAltura = double.TryParse(Console.ReadLine(), out altura);
             }
 
 
             //obtendo o peso do usuário
-            Console.Write("Peso : ");
+            Console.Write("Por favor insira Peso em kg: ");
             validadePeso = double.TryParse(Console.ReadLine(), out peso);
-            while (validadePeso == false || peso <= 0)
+            while (validadePeso == false || peso <= 0 || peso>550)
             {
                 //peso deve ter valores positivos
                 //validando somente números positivos.
-                Console.WriteLine("Não identificamos seu peso. Por favor insira o peso novamente! \t");
-                Console.Write("Peso : ");
+                Console.WriteLine("Não identificamos seu peso. Por favor insira o peso novamente \t");
+                Console.Write("Peso: ");
                 validadePeso = double.TryParse(Console.ReadLine(), out peso);
 
             }
@@ -103,17 +108,17 @@ namespace ProgramaEmagrecimento
             a variavel "auxCategoria" foi colocada dentro da função
             "Categoria:aonde mostra a categoria do usuário " e a variavel "Categoria" recebeu
             a função "Categoria(auxCategoria).*/
-            Console.Write("Categoria : ");
+            Console.Write("Categoria: ");
             int auxCategoria = idade;
             categoria = Categoria(auxCategoria);
             Console.WriteLine(categoria);
 
 
+            Console.Clear();// CLEAR para aparecer só o diagnóstico prévio 
 
-
-            
+            //as informações do diagnóstico prévio
             Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
-            Console.WriteLine("\n                    --  DIAGNÓSTICO PRÉVIO --             \n");
+            Console.WriteLine("\n                        --  DIAGNÓSTICO PRÉVIO --                   \n");
             Console.WriteLine($"Nome: {nome}\n" +
                               $"Sexo: {sexo} \n" +
                               $"Idade:{idade} anos\n" +
@@ -125,28 +130,10 @@ namespace ProgramaEmagrecimento
             double auxImc = Imc(altura, peso);
             // foi criado o método "Imc" obtendo a fórmula para calcular o IMC do usuário.
             Console.WriteLine($"IMC desejável: entre 20 e 24 .\n\n"+
-                              $"Resultado IMC: {auxImc} ");
+                              $"Resultado IMC: {auxImc.ToString("F2", CultureInfo.InvariantCulture)} \n");
             Classificacao(auxImc); /*foi criado o metodo " Classificação" para visualizar a classificação do usuario 
                                               com os dados de "riscos" e " recomendações iniciais "*/
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -180,7 +167,7 @@ namespace ProgramaEmagrecimento
         {
             if (imc < 20)
             {
-                Console.WriteLine("Abaixo do peso Ideal ");
+                
 
                 Console.WriteLine("Riscos: Muitas complicações de saúde como doenças pulmonares " +
                                   " e cardiovasculares podem estar associadas ao baixo peso. \n");
@@ -188,17 +175,24 @@ namespace ProgramaEmagrecimento
                 Console.WriteLine("Recomendação inicial:Inclua carboidratos simples em sua dieta," +
                                   " além de proteínas - indispensáveis para ganho de massa magra." +
                                   " Procure um profissional.\n");
+                Console.WriteLine("\n                    -- FIM DO DIAGNÓSTICO PRÉVIO --             \n");
+
+                Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
             }
             else if (imc >= 20 && imc <= 24)
             {
-                Console.WriteLine("Peso normal ");
+                
                 Console.WriteLine("Riscos: Seu peso está ideal para suas referências. \n");
+
                 Console.WriteLine("Recomendação inicial: Mantenha uma dieta saudável e faça seus" +
                                   " exames periódicos.\n");
+                Console.WriteLine("\n                    -- FIM DO DIAGNÓSTICO PRÉVIO --             \n");
+
+                Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
             }
             else if (imc >= 25 && imc <= 29)
             {
-                Console.WriteLine("Excesso de peso ");
+               
                 Console.WriteLine("Riscos: Aumento de peso apresenta risco moderado" +
                     " para outras doenças crônicas" +
                     " e cardiovasculares. \n ");
@@ -207,10 +201,13 @@ namespace ProgramaEmagrecimento
                 Console.WriteLine("Recomendação inicial:Adote um tratamento baseado em " +
                     "dieta balanceada,exercício físico e medicação." +
                     " A ajuda de um profissional pode ser interessante .\n");
+                Console.WriteLine("\n                    -- FIM DO DIAGNÓSTICO PRÉVIO --             \n");
+
+                Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
             }
             else if (imc >= 30 && imc <= 35)
             {
-                Console.WriteLine("Obesidade \n");
+                
 
                 Console.WriteLine("Riscos: Quem tem obesidade vai estar mais" +
                                   " exposto a doenças graves e ao" +
@@ -219,10 +216,14 @@ namespace ProgramaEmagrecimento
                 Console.WriteLine("Recomendação inicial: Adote uma dieta " +
                                   "alimentar rigorosa, com o acompanhamento" +
                                   " de um nutricionista e um médico especialista (endócrino).");
+
+                Console.WriteLine("\n                    --  FIM DO DIAGNÓSTICO PRÉVIO --             \n");
+
+                Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
             }
             else
             {
-                Console.WriteLine("Super obesidade \n");
+                
 
                 Console.WriteLine("Riscos: O obeso mórbido vive menos tem" +
                                   " alto risco de mortalidade geral por " +
@@ -231,12 +232,16 @@ namespace ProgramaEmagrecimento
                 Console.WriteLine($"Recomendação inicial: Procure com urgência o  acompanhamento de um nutricionista" +
                                  $" para realizar reeducação alimentar, um psicólogo e um médico especialista (endócrino).\n");
 
+                Console.WriteLine("\n                    -- FIM DO DIAGNÓSTICO PRÉVIO --             \n");
+
+                Console.WriteLine("\n ||-----------------------------------//-------------------------------------------|| \n");
             }
 
             
 
         }
 
+        //Método da Fórmula IMC
         static double Imc(double altura, double peso)
         {
             double imc = peso / Math.Pow(altura, 2);
