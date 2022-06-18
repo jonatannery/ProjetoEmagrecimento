@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonatan nery\\Desktop\\c#\\projetoBRQ\\ProgramaEmagrecimento\\ProgramaEmagrecimento.csproj",
+      "projectUniqueName": "C:\\Users\\jonatan nery\\Desktop\\projeto\\ProjetoEmagrecimento\\ProgramaEmagrecimento.csproj",
       "projectName": "ProgramaEmagrecimento",
-      "projectPath": "C:\\Users\\jonatan nery\\Desktop\\c#\\projetoBRQ\\ProgramaEmagrecimento\\ProgramaEmagrecimento.csproj",
+      "projectPath": "C:\\Users\\jonatan nery\\Desktop\\projeto\\ProjetoEmagrecimento\\ProgramaEmagrecimento.csproj",
       "packagesPath": "C:\\Users\\jonatan nery\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonatan nery\\Desktop\\c#\\projetoBRQ\\ProgramaEmagrecimento\\obj\\",
+      "outputPath": "C:\\Users\\jonatan nery\\Desktop\\projeto\\ProjetoEmagrecimento\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jonatan nery\\AppData\\Roaming\\NuGet\\NuGet.Config",
