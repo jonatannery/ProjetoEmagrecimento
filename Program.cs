@@ -17,8 +17,8 @@ namespace ProgramaEmagrecimento
 
             // O usuário esta tendo a infomação do inicio do programa.
             Console.WriteLine("||*******************************|| Sistema de controle de IMC ||*****************************||\n" );
-                       
 
+            
             Console.WriteLine("por favor, insira seus dados. \n");
 
 
@@ -160,8 +160,9 @@ namespace ProgramaEmagrecimento
 
         }
 
-        //Foi criado um método para saber a classificação do usuario
+        //Foi criado um método para definir a classificação do usuario
         //A classificação é baseada no índice de massa corporal(IMC).
+        //Aqui também tem os riscos e recomendações.
         static void Classificacao(double imc)
         {
             if (imc < 20)
@@ -227,7 +228,7 @@ namespace ProgramaEmagrecimento
             }           
         }
 
-        //Método da Fórmula IMC
+        //Fórmula IMC
         static double Imc(double altura, double peso)
         {
             double imc = peso / Math.Pow(altura, 2);
